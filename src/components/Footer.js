@@ -1,5 +1,9 @@
+// src/components/Footer.js
 import React from 'react';
-import { Navbar, Container } from 'react-bootstrap';
+import { Navbar, Container, Nav } from 'react-bootstrap'; // Don't forget to import Nav!
+import './Footer.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faYoutube, faSpotify, faFacebook } from '@fortawesome/free-brands-svg-icons';
 
 const Footer = () => {
   return (
@@ -9,15 +13,17 @@ const Footer = () => {
         <Navbar.Collapse className="justify-content-end">
           {/* Add your app icons or links here */}
           {/* Example: */}
-          <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" className="text-danger mx-2">
-            <i className="fab fa-youtube fa-lg"></i>
-          </a>
-          <a href="https://www.spotify.com" target="_blank" rel="noopener noreferrer" className="text-success mx-2">
-            <i className="fab fa-spotify fa-lg"></i>
-          </a>
-          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="text-primary mx-2">
-            <i className="fab fa-facebook fa-lg"></i>
-          </a>
+          <Nav className="ml-auto">
+      <Nav.Link href="https://www.youtube.com" target="_blank">
+        <FontAwesomeIcon icon={faYoutube} size="lg" />
+      </Nav.Link>
+      <Nav.Link href="https://www.spotify.com" target="_blank">
+        <FontAwesomeIcon icon={faSpotify} size="lg" />
+      </Nav.Link>
+      <Nav.Link href="https://www.facebook.com" target="_blank">
+        <FontAwesomeIcon icon={faFacebook} size="lg" />
+      </Nav.Link>
+    </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
@@ -25,3 +31,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

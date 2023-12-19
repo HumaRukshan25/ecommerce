@@ -21,11 +21,7 @@ const App = () => {
               <Nav.Link as={Link} to="/about">About</Nav.Link>
               <Nav.Link as={Link} to="/cart">Cart</Nav.Link>
             </Nav>
-            <Nav className="ml-auto">
-              <Nav.Link href="https://www.youtube.com" target="_blank"><i className="fab fa-youtube"></i></Nav.Link>
-              <Nav.Link href="https://www.spotify.com" target="_blank"><i className="fab fa-spotify"></i></Nav.Link>
-              <Nav.Link href="https://www.facebook.com" target="_blank"><i className="fab fa-facebook"></i></Nav.Link>
-            </Nav>
+           
           </Navbar.Collapse>
         </Navbar>
 
@@ -40,6 +36,7 @@ const App = () => {
 
         {/* Add the Footer component */}
         <Footer />
+        
       </div>
     </Router>
   );

@@ -1,0 +1,19 @@
+/* src/components/Footer.css */
+
+/* Style for social media icons in the Navbar */
+.navbar .nav-link i {
+    font-size: 1.5rem; /* Adjust the size of the icons as needed */
+    margin-right: 5px; /* Adjust the margin between icons as needed */
+    color: #007bff; /* Set the color of the icons to blue */
+  }
+  
+  /* Style for the Navbar links (adjust as needed) */
+  .navbar-nav .nav-link {
+    color: #007bff; /* Set the color of the links to blue */
+  }
+  
+  /* Style for active Nav.Link (adjust as needed) */
+  .navbar-nav .nav-link.active {
+    color: #0056b3; /* Set the color of the active link to a darker blue */
+  }
+ 

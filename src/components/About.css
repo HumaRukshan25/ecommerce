@@ -1,0 +1,17 @@
+/* src/components/About.css */
+
+/* Add your custom styles here */
+.about-container {
+    padding: 20px;
+    background-color: #f7fafd;
+  }
+  
+  .about-title {
+    color: #007bff;
+  }
+  
+  .about-content {
+    line-height: 1.6;
+    text-align: justify;
+  }
+  
