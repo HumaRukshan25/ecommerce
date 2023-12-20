@@ -1,66 +1,51 @@
-// src/components/Store.js
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
-import './Store.css'; // Import the CSS file
+import './Store.css';
+import { useCart } from './CartContext';
+
 const Store = () => {
+  const { addToCart, increaseQuantity, decreaseQuantity } = useCart();
+
+  const musicItems = [
+    { id: 1, title: 'Album 1', price: 12.99, image: 'album1.jpg' },
+    { id: 2, title: 'Album 2', price: 14.99, image: 'album2.jpg' },
+    { id: 3, title: 'Album 3', price: 9.99, image: 'album3.jpg' },
+    { id: 4, title: 'Album 4', price: 19.99, image: 'album4.jpg' },
+  ];
+
+  const merchItems = [
+    { id: 5, title: 'T-Shirt', price: 19.99, image: 'shirt.jpg' },
+    { id: 6, title: 'Coffee Cup', price: 6.99, image: 'cup.jpg' },
+    // Add more merch items as needed
+  ];
+
+  const renderCard = (item) => (
+    <Card key={item.id}>
+      <Card.Img variant="top" src={item.image} alt={item.title} />
+      <Card.Body>
+        <Card.Title>{item.title}</Card.Title>
+        <Card.Text>${item.price}</Card.Text>
+        <Button variant="primary" onClick={() => addToCart(item)}>
+          ADD TO CART
+        </Button>
+        <Button variant="success" onClick={() => increaseQuantity(item.id)}>
+          Increase Quantity
+        </Button>
+        <Button variant="danger" onClick={() => decreaseQuantity(item.id)}>
+          Decrease Quantity
+        </Button>
+      </Card.Body>
+    </Card>
+  );
+
   return (
     <div>
       <h2>The Generics</h2>
       <h3>MUSIC</h3>
-      <Card>
-        <Card.Img variant="top" src="album1.jpg" alt="Album 1" />
-        <Card.Body>
-          <Card.Title>Album 1</Card.Title>
-          <Card.Text>$12.99</Card.Text>
-          <Button variant="primary">ADD TO CART</Button>
-        </Card.Body>
-      </Card>
-
-      <Card>
-        <Card.Img variant="top" src="album2.jpg" alt="Album 2" />
-        <Card.Body>
-          <Card.Title>Album 2</Card.Title>
-          <Card.Text>$14.99</Card.Text>
-          <Button variant="primary">ADD TO CART</Button>
-        </Card.Body>
-      </Card>
-
-      <Card>
-        <Card.Img variant="top" src="album3.jpg" alt="Album 3" />
-        <Card.Body>
-          <Card.Title>Album 3</Card.Title>
-          <Card.Text>$9.99</Card.Text>
-          <Button variant="primary">ADD TO CART</Button>
-        </Card.Body>
-      </Card>
-
-      <Card>
-        <Card.Img variant="top" src="album4.jpg" alt="Album 4" />
-        <Card.Body>
-          <Card.Title>Album 4</Card.Title>
-          <Card.Text>$19.99</Card.Text>
-          <Button variant="primary">ADD TO CART</Button>
-        </Card.Body>
-      </Card>
+      {musicItems.map(renderCard)}
 
       <h3>MERCH</h3>
-      <Card>
-        <Card.Img variant="top" src="shirt.jpg" alt="T-Shirt" />
-        <Card.Body>
-          <Card.Title>T-Shirt</Card.Title>
-          <Card.Text>$19.99</Card.Text>
-          <Button variant="primary">ADD TO CART</Button>
-        </Card.Body>
-      </Card>
-
-      <Card>
-        <Card.Img variant="top" src="cup.jpg" alt="Coffee Cup" />
-        <Card.Body>
-          <Card.Title>Coffee Cup</Card.Title>
-          <Card.Text>$6.99</Card.Text>
-          <Button variant="primary">ADD TO CART</Button>
-        </Card.Body>
-      </Card>
+      {merchItems.map(renderCard)}
 
       <Button variant="success">See the cart</Button>
     </div>
